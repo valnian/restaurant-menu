@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #2c3e50, #4a6572);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            min-height: 100vh;
+        }
+        
+        .menu {
+            width: 400px;
+            height: 550px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin: 15px;
+            position: relative;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+        
+        .menu:hover {
+            transform: translateY(-5px);
+        }
+        
+        .menu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.85;
+            z-index: -1;
+        }
+        
+        .breakfast::before {
+            background-image: url('https://as2.ftcdn.net/v2/jpg/01/80/23/57/1000_F_180235724_re7asm0odpdBIJDRz5LSNkjtUr6aZUXG.jpg');
+            background-position: center 30%;
+        }
+        
+        .lunch::before {
+            background-image: url('https://assets.simpleviewinc.com/simpleview/image/upload/c_fill,f_avif,h_480,q_65,w_1440/v1/clients/sandysprings/9_14_Let_s_Do_Lunch_1ff2201b-01f2-48d6-8381-de2b9bfcc491.jpg');
+            background-position: center 40%;
+        }
+        
+        .dinner::before {
+            background-image: url('https://media.istockphoto.com/id/836012728/photo/holiday-turkey-dinner.jpg?s=612x612&w=0&k=20&c=f40xa5igjwqfNQq0qO0W0M0KCY_9MEZVztrPjgmBhBg=');
+            background-position: center 35%;
+        }
+        
+        .menu-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed rgba(255, 255, 255, 0.4);
+        }
+        
+        .menu-title {
+            font-size: 32px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .menu-subtitle {
+            font-style: italic;
+            font-size: 16px;
+            color: #f8f8f8;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+        
+        .menu-items {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .menu-item {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #c19a6b;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateX(5px);
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .item-name {
+            font-weight: 600;
+            font-size: 18px;
+        }
+        
+        .item-price {
+            font-weight: 700;
+            color: #f8c471;
+        }
+        
+        .item-desc {
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.4;
+        }
+        
+        .menu-footer {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px dashed rgba(255, 255, 255, 0.4);
+            font-style: italic;
+            color: #f8f8f8;
+            font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+        }
+        
+        @media (max-width: 900px) {
+            body {
+                padding: 30px 15px;
+                gap: 30px;
+            }
+            
+            .menu {
+                margin: 10px;
+            }
+        }
+        
+        @media (max-width: 500px) {
+            .menu {
+                width: 100%;
+                height: auto;
+                min-height: 550px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Breakfast Menu -->
+    <div class="menu breakfast">
+        <div class="menu-header">
+            <h2 class="menu-title">Breakfast Menu</h2>
+            <p class="menu-subtitle">Served until 11:30 AM</p>
+        </div>
+        
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Classic Pancakes</span>
+                    <span class="item-price">$9.95</span>
+                </div>
+                <p class="item-desc">Fluffy buttermilk pancakes served with maple syrup and butter.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Avocado Toast</span>
+                    <span class="item-price">$10.50</span>
+                </div>
+                <p class="item-desc">Sourdough toast topped with mashed avocado, cherry tomatoes, and microgreens.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Breakfast Burrito</span>
+                    <span class="item-price">$12.95</span>
+                </div>
+                <p class="item-desc">Scrambled eggs, black beans, cheese, and avocado wrapped in a flour tortilla.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Belgian Waffle</span>
+                    <span class="item-price">$11.25</span>
+                </div>
+                <p class="item-desc">Crispy waffle topped with fresh berries and whipped cream.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Eggs Benedict</span>
+                    <span class="item-price">$13.75</span>
+                </div>
+                <p class="item-desc">Poached eggs on English muffins with Canadian bacon and hollandaise sauce.</p>
+            </div>
+        </div>
+        
+        <div class="menu-footer">
+            <p>Freshly brewed coffee and juice available</p>
+        </div>
+    </div>
+    
+    <!-- Lunch Menu -->
+    <div class="menu lunch">
+        <div class="menu-header">
+            <h2 class="menu-title">Lunch Menu</h2>
+            <p class="menu-subtitle">Served from 11:30 AM to 3:00 PM</p>
+        </div>
+        
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Caesar Salad</span>
+                    <span class="item-price">$10.95</span>
+                </div>
+                <p class="item-desc">Crisp romaine lettuce with parmesan, croutons, and our homemade Caesar dressing.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Club Sandwich</span>
+                    <span class="item-price">$13.50</span>
+                </div>
+                <p class="item-desc">Triple-decker sandwich with turkey, bacon, lettuce, tomato, and mayo.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Margherita Pizza</span>
+                    <span class="item-price">$14.95</span>
+                </div>
+                <p class="item-desc">Thin crust pizza with fresh mozzarella, tomatoes, and basil.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">BBQ Chicken Wrap</span>
+                    <span class="item-price">$11.75</span>
+                </div>
+                <p class="item-desc">Grilled chicken, BBQ sauce, lettuce, and crispy onions in a spinach wrap.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Burger & Fries</span>
+                    <span class="item-price">$15.25</span>
+                </div>
+                <p class="item-desc">Beef patty with cheddar, lettuce, tomato, onion, and side of crispy fries.</p>
+            </div>
+        </div>
+        
+        <div class="menu-footer">
+            <p>All lunch items served with your choice of side</p>
+        </div>
+    </div>
+    
+    <!-- Dinner Menu -->
+    <div class="menu dinner">
+        <div class="menu-header">
+            <h2 class="menu-title">Dinner Menu</h2>
+            <p class="menu-subtitle">Served from 5:00 PM to 10:00 PM</p>
+        </div>
+        
+        <div class="menu-items">
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Filet Mignon</span>
+                    <span class="item-price">$28.95</span>
+                </div>
+                <p class="item-desc">8oz tender beef filet with roasted garlic mashed potatoes and seasonal vegetables.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Grilled Salmon</span>
+                    <span class="item-price">$24.50</span>
+                </div>
+                <p class="item-desc">Atlantic salmon with lemon butter sauce, rice pilaf, and asparagus.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Mushroom Risotto</span>
+                    <span class="item-price">$18.75</span>
+                </div>
+                <p class="item-desc">Creamy Arborio rice with wild mushrooms, white wine, and parmesan.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Herb-Crusted Chicken</span>
+                    <span class="item-price">$20.95</span>
+                </div>
+                <p class="item-desc">Chicken breast with herb crust, roasted potatoes, and green beans.</p>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Pasta Carbonara</span>
+                    <span class="item-price">$17.50</span>
+                </div>
+                <p class="item-desc">Spaghetti with pancetta, eggs, parmesan, and black pepper.</p>
+            </div>
+        </div>
+        
+        <div class="menu-footer">
+            <p>Ask your server about our daily specials and dessert menu</p>
+        </div>
+    </div>
+</body>
+</html>
